@@ -22,8 +22,6 @@ export default class JobPage extends Component {
 
   render() {
     const { jobs } = this.props;
-    // console.log("render() JobPage")
-    // console.log(jobs);
     return (
         <JobList jobs={jobs}/>
     );
