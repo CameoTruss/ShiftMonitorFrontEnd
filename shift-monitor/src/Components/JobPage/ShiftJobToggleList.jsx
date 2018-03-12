@@ -11,7 +11,7 @@ import List, {
 import Switch from 'material-ui/Switch';
 import WifiIcon from 'material-ui-icons/Wifi';
 import BluetoothIcon from 'material-ui-icons/Bluetooth';
-import JobSwitchRow from './JobSwitchRow';
+import ShiftJobToggleRow from './ShiftJobToggleRow';
 
 const styles = theme => ({
   root: {
@@ -21,7 +21,7 @@ const styles = theme => ({
   },
 });
 
-class SwitchListSecondary extends React.Component {
+class ShiftJobToggleList extends React.Component {
   state = {
     checked: [],
   };
@@ -50,15 +50,15 @@ class SwitchListSecondary extends React.Component {
       <div className={classes.root}>
         <List subheader={<ListSubheader>Add Jobs To Shift</ListSubheader>}>
           {jobs.map(job => 
-          <JobSwitchRow key={job.JobId} job={job} onChange={this.handleToggle(job.JobId)} checked={this.state.checked.indexOf(job.JobId) !== -1}/>)}
+          <ShiftJobToggleRow key={job.JobId} job={job} onChange={this.handleToggle(job.JobId)} checked={this.state.checked.indexOf(job.JobId) !== -1}/>)}
         </List>
       </div>
     );
   }
 }
 
-SwitchListSecondary.propTypes = {
+ShiftJobToggleList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SwitchListSecondary);
+export default withStyles(styles)(ShiftJobToggleList);

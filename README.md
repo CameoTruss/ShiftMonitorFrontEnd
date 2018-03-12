@@ -1,12 +1,20 @@
 # CameoTruss
 
-## Dev Resources
+## UI Resources
+
+- [Material Design](https://material.io/guidelines/material-design)
+  - [Tablet Templates](https://material.io/guidelines/resources/layout-templates.html#layout-templates-tablet)
+- [Material UI for React](https://material-ui-next.com/)
+  - [Components](https://material-ui-next.com/demos/progress/)
+- [Material Icons](https://material.io/icons/)
+
+## Implementation Resources
 
 App initialized with [`npx create-react-app`](https://github.com/facebook/create-react-app)
 
 ### Apollo
 
-- 
+- [docs](https://www.apollographql.com/docs/react/)
 
 ### AWS
 

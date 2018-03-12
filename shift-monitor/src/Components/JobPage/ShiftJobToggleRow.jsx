@@ -5,7 +5,7 @@ import Switch from 'material-ui/Switch';
 import WifiIcon from 'material-ui-icons/Wifi';
 import BluetoothIcon from 'material-ui-icons/Bluetooth';
 
-class JobSwitchRow extends React.Component {
+class ShiftJobToggleRow extends React.Component {
   constructor(props) {
     super(props);
     this.handleToggle = this
@@ -39,8 +39,8 @@ class JobSwitchRow extends React.Component {
   };
 }
 
-JobSwitchRow.propTypes = {
+ShiftJobToggleRow.propTypes = {
   job: PropTypes.object
 };
 
-export default JobSwitchRow;
+export default ShiftJobToggleRow;

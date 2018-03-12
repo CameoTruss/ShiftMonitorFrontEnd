@@ -5,7 +5,7 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import JobList from './JobList'
-import JobSwitchList from './JobSwitchList'
+import ShiftJobToggleList from './ShiftJobToggleList'
 var json = require('../../Data/mock_data.json');
 
 const styles = {
@@ -20,21 +20,17 @@ export default class JobPage extends Component {
     super(props);
 
     this.state = {
-      // editing: {}
+      
     }
   }
 
   static defaultProps = {
-    // posts: [], onDelete: () => null, onEdit: () => null,
     classes: styles,
     jobs: json["Job"],
     title: "Cameo Shift Monitor"
   }
 
   render() {
-    // const { jobs } = this.props; console.log(jobs); <JobList jobs={jobs}/> return
-    // (   <div>   <AppBar     title="Title"
-    // iconClassNameRight="muidocs-icon-navigation-expand-more"/>   </div> );
     const {classes, title, jobs} = this.props;
 
     return (
@@ -46,7 +42,7 @@ export default class JobPage extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <JobSwitchList jobs={jobs}/>
+        <ShiftJobToggleList jobs={jobs}/>
       </div>
     );
   }
