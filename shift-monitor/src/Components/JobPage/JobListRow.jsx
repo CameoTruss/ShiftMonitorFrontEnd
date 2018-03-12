@@ -1,6 +1,7 @@
 import React from 'react';
 
 const JobRow = ({job}) => {
+  // console.log(job);
   return (
     <tr>
       <td>{job.JobNumber}</td>
