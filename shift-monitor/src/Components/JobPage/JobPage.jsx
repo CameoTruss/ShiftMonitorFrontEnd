@@ -6,6 +6,7 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import JobList from './JobList'
 import ShiftJobToggleList from './ShiftJobToggleList'
+import Navigation from './Navigation'
 var json = require('../../Data/mock_data.json');
 
 const styles = {
@@ -43,6 +44,7 @@ export default class JobPage extends Component {
           </Toolbar>
         </AppBar>
         <ShiftJobToggleList jobs={jobs}/>
+        <Navigation/>
       </div>
     );
   }
