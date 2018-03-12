@@ -16,13 +16,13 @@ class JobSwitchRow extends React.Component {
     }
   }
 
-  handleToggle() {
+  handleToggle = value => () => {
     var newChecked = !this.state.checked;
     this.setState({checked: newChecked});
+    console.log("update remote system")
   }
 
   render() {
-    console.log(this.props.job.jobNumber);
     const job = this.props.job;
     console.log(job);
     return (
@@ -32,7 +32,7 @@ class JobSwitchRow extends React.Component {
         </ListItemIcon>
         <ListItemText primary={this.props.job.JobNumber}/>
         <ListItemSecondaryAction>
-          <Switch onChange={this.handleToggle} checked={this.state.checked}/>
+          <Switch onChange={this.props.onChange} checked={this.props.checked}/>
         </ListItemSecondaryAction>
       </ListItem>
     );

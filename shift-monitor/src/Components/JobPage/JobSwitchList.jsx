@@ -23,7 +23,7 @@ const styles = theme => ({
 
 class SwitchListSecondary extends React.Component {
   state = {
-    checked: ['wifi'],
+    checked: [],
   };
 
   handleToggle = value => () => {
@@ -40,6 +40,7 @@ class SwitchListSecondary extends React.Component {
     this.setState({
       checked: newChecked,
     });
+    console.log(this.state);
   };
 
   render() {
@@ -48,19 +49,8 @@ class SwitchListSecondary extends React.Component {
     return (
       <div className={classes.root}>
         <List subheader={<ListSubheader>Add Jobs To Shift</ListSubheader>}>
-          {jobs.map(job => <JobSwitchRow key={job.JobId} job={job}/>)}
-          <ListItem>
-            <ListItemIcon>
-              <BluetoothIcon />
-            </ListItemIcon>
-            <ListItemText primary="Bluetooth" />
-            <ListItemSecondaryAction>
-              <Switch
-                onChange={this.handleToggle('bluetooth')}
-                checked={this.state.checked.indexOf('bluetooth') !== -1}
-              />
-            </ListItemSecondaryAction>
-          </ListItem>
+          {jobs.map(job => 
+          <JobSwitchRow key={job.JobId} job={job} onChange={this.handleToggle(job.JobId)} checked={this.state.checked.indexOf(job.JobId) !== -1}/>)}
         </List>
       </div>
     );
