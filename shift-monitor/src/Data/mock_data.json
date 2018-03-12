@@ -1,0 +1,48 @@
+{
+  "Job": [{
+    "JobId": "J01-guid",
+    "JobNumber": "J01",
+    "CustomerId": "Most Wanted-guid"
+  }, {
+    "JobId": "J02-guid",
+    "JobNumber": "J02",
+    "CustomerId": "Foundrey-guid"
+  }, {
+    "JobId": "J03-guid",
+    "JobNumber": "J03",
+    "CustomerId": "Most Wanted-guid"
+  }],
+  "JobShift": [{
+    "JobShiftId": "J01-01-guid",
+    "JobId": "J01-guid",
+    "DepartmentShiftId": "DepartmentShiftId-J01-01-guid"
+  }, {
+    "JobShiftId": "J01-02-guid",
+    "JobId": "J01-guid",
+    "DepartmentShiftId": "DepartmentShiftId-J01-02-guid"
+  }, {
+    "JobShiftId": "J02-01-guid",
+    "JobId": "J02-guid",
+    "DepartmentShiftId": "DepartmentShiftId-J02-01-guid"
+  }],
+  "DepartmentShift": [{
+    "DepartmentShiftId": "DepartmentShiftId-J01-01-guid",
+    "Department": "Truss-Assembly",
+    "StartTime": "2017-01-01 08:00:00 AM",
+    "CompleteTime": null
+  }]
+  ,
+  "ShiftTimeableTask": [{
+    "ShiftTimeableTaskId": "ShiftTimeableTaskId-J01-01",
+    "TimeableTaskId": "TimeableTaskId-J01-T01-guid",
+    "DepartmentShiftId": "DepartmentShiftId-J01-01-guid",
+    "ElapsedSeconds":600,
+    "CurrentStatus":"In-Progress"
+  }]
+  ,
+  "TimeableTask": [{
+    "TimeableTaskId": "TimeableTaskId-J01-T01-guid",
+    "JobId": "J01-guid",
+    "TaskDesc":"T01"
+  }]
+}
