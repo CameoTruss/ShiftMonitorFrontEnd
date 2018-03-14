@@ -25,7 +25,7 @@ export default class JobPage extends Component {
 
   static defaultProps = {
     classes: styles,
-    title: "Cameo Shift Monitor"
+    title: "Cameo Shift Monitor (preview)"
   }
 
   render() {

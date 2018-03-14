@@ -24,7 +24,7 @@ export default class PageTemplate extends Component {
 
   static defaultProps = {
     classes: styles,
-    title: "Cameo Shift Monitor",
+    title: "Cameo Shift Monitor (preview)",
   }
 
   render() {
