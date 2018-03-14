@@ -11,6 +11,22 @@
     "JobId": "J03-guid",
     "JobNumber": "J03",
     "CustomerId": "Most Wanted-guid"
+  }, {
+    "JobId": "J04-guid",
+    "JobNumber": "J04",
+    "CustomerId": "Most Wanted-guid"
+  }, {
+    "JobId": "J05-guid",
+    "JobNumber": "J05",
+    "CustomerId": "Most Wanted-guid"
+  }, {
+    "JobId": "J06-guid",
+    "JobNumber": "J06",
+    "CustomerId": "Most Wanted-guid"
+  }, {
+    "JobId": "J07-guid",
+    "JobNumber": "J07",
+    "CustomerId": "Most Wanted-guid"
   }],
   "JobShift": [{
     "JobShiftId": "J01-01-guid",

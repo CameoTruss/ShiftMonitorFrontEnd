@@ -10,6 +10,8 @@ import LocationOnIcon from 'material-ui-icons/LocationOn';
 const styles = {
   root: {
     width: '100%',
+    position: 'fixed',
+    bottom: '0px'
   },
 };
 
@@ -21,6 +23,8 @@ class SimpleBottomNavigation extends React.Component {
 
   handleChange = (event, value) => {
     // this.setState({ value });
+    console.log(value);
+    
     switch (value) {
       case 0:
         this.props.history.push("/Jobs");
@@ -31,13 +35,12 @@ class SimpleBottomNavigation extends React.Component {
         break;
     }
     
-    console.log(value);
     
   };
 
   render() {
     const { classes, currentPageIndex } = this.props;
-    const { value } = this.state;
+    // const { value } = this.state;
 
     return (
       <BottomNavigation

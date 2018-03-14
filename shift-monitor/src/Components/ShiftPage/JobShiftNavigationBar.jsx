@@ -13,6 +13,8 @@ import EditIcon from 'material-ui-icons/ModeEdit';
 import UpIcon from 'material-ui-icons/KeyboardArrowUp';
 import green from 'material-ui/colors/green';
 
+import JobTrussTimer from './JobTrussTimer';
+
 function TabContainer(props) {
   const { children, dir } = props;
 
@@ -35,16 +37,7 @@ const styles = theme => ({
     position: 'relative',
     height: '100%',
     minHeight: 200,
-  },
-  fab: {
-    position: 'absolute',
-    bottom: theme.spacing.unit * 2,
-    right: theme.spacing.unit * 2,
-  },
-  fabGreen: {
-    color: theme.palette.common.white,
-    backgroundColor: green[500],
-  },
+  }
 });
 
 class FloatingActionButtonZoom extends React.Component {
@@ -67,24 +60,6 @@ class FloatingActionButtonZoom extends React.Component {
       exit: theme.transitions.duration.leavingScreen,
     };
 
-    const fabs = [
-      {
-        color: 'primary',
-        className: classes.fab,
-        icon: <AddIcon />,
-      },
-      {
-        color: 'secondary',
-        className: classes.fab,
-        icon: <EditIcon />,
-      },
-      {
-        color: 'inherit',
-        className: classNames(classes.fab, classes.fabGreen),
-        icon: <UpIcon />,
-      },
-    ];
-
     return (
       <div className={classes.root}>
         <AppBar position="static" color="default">
@@ -95,9 +70,9 @@ class FloatingActionButtonZoom extends React.Component {
             textColor="primary"
             fullWidth
           >
-            <Tab label="Item One" />
-            <Tab label="Item Two" />
-            <Tab label="Item Three" />
+            <Tab label="J01" />
+            <Tab label="J02" />
+            <Tab label="J03" />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -105,25 +80,13 @@ class FloatingActionButtonZoom extends React.Component {
           index={this.state.value}
           onChangeIndex={this.handleChangeIndex}
         >
-          <TabContainer dir={theme.direction}>Item One3</TabContainer>
-          <TabContainer dir={theme.direction}>Item Two</TabContainer>
-          <TabContainer dir={theme.direction}>Item Three</TabContainer>
+          <TabContainer dir={theme.direction}>Swipe between jobs added to shift.</TabContainer>
+          <TabContainer dir={theme.direction}>A list 1 stopwatches per truss.
+          Each stopwatch indicates progress in run</TabContainer>
+          <TabContainer dir={theme.direction}>
+            <JobTrussTimer/>
+          </TabContainer>
         </SwipeableViews>
-        {fabs.map((fab, index) => (
-          <Zoom
-            key={fab.color}
-            in={this.state.value === index}
-            timeout={transitionDuration}
-            style={{
-              transitionDelay: this.state.value === index ? transitionDuration.exit : 0,
-            }}
-            unmountOnExit
-          >
-            <Button variant="fab" className={fab.className} color={fab.color}>
-              {fab.icon}
-            </Button>
-          </Zoom>
-        ))}
       </div>
     );
   }

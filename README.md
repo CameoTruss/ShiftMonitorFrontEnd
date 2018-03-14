@@ -7,6 +7,7 @@
 - [Material UI for React](https://material-ui-next.com/)
   - [Components](https://material-ui-next.com/demos/progress/)
 - [Material Icons](https://material.io/icons/)
+  - [Unofficial Icons](https://materialdesignicons.com/)
 
 ## Implementation Resources
 

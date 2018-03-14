@@ -12,7 +12,7 @@ class App extends Component {
       <MuiThemeProvider>
         <Router>
           <div>
-            <Route exact={true} path="/" component={HomePage} />
+            <Route exact={true} path="/" component={JobPage} />
             <Route exact={true} path="/Jobs" component={JobPage} />
             <Route exact={true} path="/Shift" component={ShiftPage} />
           </div>
