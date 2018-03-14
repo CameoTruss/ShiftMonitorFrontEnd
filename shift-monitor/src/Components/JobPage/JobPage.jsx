@@ -4,14 +4,15 @@ import {withStyles} from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import JobList from './JobList'
+
 import ShiftJobToggleList from './ShiftJobToggleList'
 import Navigation from './Navigation'
 var json = require('../../Data/mock_data.json');
 
 const styles = {
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    width: '100%',
   }
 };
 
@@ -50,3 +51,9 @@ export default class JobPage extends Component {
   }
 
 }
+
+JobPage.propTypes = {
+  classes: PropTypes.object.isRequired,
+  jobs: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+};
