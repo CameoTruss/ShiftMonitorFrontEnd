@@ -5,8 +5,6 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 
-import ShiftJobToggleList from './ShiftJobToggleList'
-var json = require('../../Data/mock_data.json');
 
 const styles = {
   root: {
@@ -27,12 +25,11 @@ export default class JobPage extends Component {
 
   static defaultProps = {
     classes: styles,
-    jobs: json["Job"],
     title: "Cameo Shift Monitor"
   }
 
   render() {
-    const {classes, title, jobs} = this.props;
+    const { classes, title } = this.props;
 
     return (
       <div className={classes.root}>
@@ -43,7 +40,6 @@ export default class JobPage extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <ShiftJobToggleList jobs={jobs}/>
       </div>
     );
   }
@@ -52,6 +48,5 @@ export default class JobPage extends Component {
 
 JobPage.propTypes = {
   classes: PropTypes.object.isRequired,
-  jobs: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
 };
