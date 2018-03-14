@@ -8,23 +8,25 @@ import BluetoothIcon from 'material-ui-icons/Bluetooth';
 class ShiftJobToggleRow extends React.Component {
   constructor(props) {
     super(props);
-    this.handleToggle = this
-      .handleToggle
-      .bind(this);
+
+    // this.handleToggle = this
+    //   .handleToggle
+    //   .bind(this);
+
     this.state = {
       checked: false,
     }
   }
 
-  handleToggle = value => () => {
-    var newChecked = !this.state.checked;
-    this.setState({checked: newChecked});
-    console.log("update remote system")
-  }
+  // handleToggle = value => () => {
+  //   var newChecked = !this.state.checked;
+  //   this.setState({checked: newChecked});
+  //   console.log("update remote system")
+  // }
 
   render() {
     const job = this.props.job;
-    console.log(job);
+    // console.log(job);
     return (
       <ListItem>
         <ListItemIcon>

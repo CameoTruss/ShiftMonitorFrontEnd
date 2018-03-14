@@ -21,25 +21,34 @@ const styles = theme => ({
 });
 
 class ShiftJobToggleList extends React.Component {
-  state = {
-    checked: [],
-  };
+  constructor(props) {
+    super(props);
+
+    this.handleToggle = this
+      .handleToggle
+      .bind(this);
+
+    this.state = {
+      checked: []
+    }
+  }
 
   handleToggle = value => () => {
     const { checked } = this.state;
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
-
+    
     if (currentIndex === -1) {
       newChecked.push(value);
     } else {
       newChecked.splice(currentIndex, 1);
     }
+    console.log("handleToggle ShiftJobToggleList");
 
     this.setState({
       checked: newChecked,
     });
-    console.log(this.state);
+    
   };
 
   render() {
@@ -58,6 +67,7 @@ class ShiftJobToggleList extends React.Component {
 
 ShiftJobToggleList.propTypes = {
   classes: PropTypes.object.isRequired,
+  jobs: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(ShiftJobToggleList);

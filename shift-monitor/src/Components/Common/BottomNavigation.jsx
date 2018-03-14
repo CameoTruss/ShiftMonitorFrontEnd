@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import BottomNavigation, { BottomNavigationAction } from 'material-ui/BottomNavigation';
@@ -13,16 +14,29 @@ const styles = {
 };
 
 class SimpleBottomNavigation extends React.Component {
+  // @TODO set state from props
   state = {
-    value: 0,
+    value: 2,
   };
 
   handleChange = (event, value) => {
     this.setState({ value });
+    switch (value) {
+      case 0:
+        this.props.history.push("/Jobs");
+        break;
+      case 1:
+        this.props.history.push("/Template");
+      default:
+        break;
+    }
+    
+    console.log(value);
+    
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, currentPageIndex } = this.props;
     const { value } = this.state;
 
     return (
@@ -41,6 +55,7 @@ class SimpleBottomNavigation extends React.Component {
 
 SimpleBottomNavigation.propTypes = {
   classes: PropTypes.object.isRequired,
+  currentPageIndex: PropTypes.number.isRequired
 };
 
-export default withStyles(styles)(SimpleBottomNavigation);
+export default withStyles(styles)(withRouter(SimpleBottomNavigation));

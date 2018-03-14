@@ -6,12 +6,13 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 
 import ShiftJobToggleList from './ShiftJobToggleList'
+import PageTemplate from '../Common/PageTemplate'
 var json = require('../../Data/mock_data.json');
 
 const styles = {
   root: {
     flexGrow: 1,
-    width: '100%',
+    width: '100%'
   }
 };
 
@@ -20,15 +21,16 @@ export default class JobPage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      
-    }
+    this.state = {}
   }
 
   static defaultProps = {
     classes: styles,
     jobs: json["Job"],
-    title: "Cameo Shift Monitor"
+  }
+
+  handleToggle = value => () => {
+    console.log(value);
   }
 
   render() {
@@ -36,14 +38,9 @@ export default class JobPage extends Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static" color="default">
-          <Toolbar>
-            <Typography variant="title" color="inherit">
-              {title}
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <ShiftJobToggleList jobs={jobs}/>
+        <PageTemplate currentPageIndex={0}>
+          <ShiftJobToggleList jobs={jobs} onChange={this.handleToggle} />
+        </PageTemplate>
       </div>
     );
   }
@@ -53,5 +50,4 @@ export default class JobPage extends Component {
 JobPage.propTypes = {
   classes: PropTypes.object.isRequired,
   jobs: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
 };
