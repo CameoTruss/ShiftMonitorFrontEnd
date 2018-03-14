@@ -3,8 +3,8 @@ import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import BottomNavigation, { BottomNavigationAction } from 'material-ui/BottomNavigation';
-import RestoreIcon from 'material-ui-icons/Restore';
-import FavoriteIcon from 'material-ui-icons/Favorite';
+import AlarmIcon from 'material-ui-icons/Alarm';
+import NoteAddIcon from 'material-ui-icons/NoteAdd';
 import LocationOnIcon from 'material-ui-icons/LocationOn';
 
 const styles = {
@@ -20,13 +20,13 @@ class SimpleBottomNavigation extends React.Component {
   };
 
   handleChange = (event, value) => {
-    this.setState({ value });
+    // this.setState({ value });
     switch (value) {
       case 0:
         this.props.history.push("/Jobs");
         break;
       case 1:
-        this.props.history.push("/Template");
+        this.props.history.push("/Shift");
       default:
         break;
     }
@@ -41,13 +41,13 @@ class SimpleBottomNavigation extends React.Component {
 
     return (
       <BottomNavigation
-        value={value}
+        value={currentPageIndex}
         onChange={this.handleChange}
         showLabels
         className={classes.root}
       >
-        <BottomNavigationAction label="Add Jobs to Shift" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Timers" icon={<FavoriteIcon />} />
+        <BottomNavigationAction label="Add Jobs to Shift" icon={<NoteAddIcon />} />
+        <BottomNavigationAction label="Timer" icon={<AlarmIcon />} />
       </BottomNavigation>
     );
   }

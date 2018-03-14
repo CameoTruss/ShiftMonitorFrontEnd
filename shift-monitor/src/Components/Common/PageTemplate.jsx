@@ -24,18 +24,18 @@ export default class PageTemplate extends Component {
 
   static defaultProps = {
     classes: styles,
-    title: "Cameo Shift Monitor"
+    title: "Cameo Shift Monitor",
   }
 
   render() {
-    const {classes, title } = this.props;
+    const {classes, title, pageIndex } = this.props;
 
     // @TODO high order component: https://stackoverflow.com/questions/20851533/react-js-wrapping-one-component-into-another/31564812#31564812
     return (
       <div className={classes.root}>
         <AppBar class={classes} title={title} />      
           {this.props.children}
-        <BottomNavigation />
+        <BottomNavigation currentPageIndex={pageIndex}/>
       </div>
     );
   }

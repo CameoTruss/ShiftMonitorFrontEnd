@@ -5,8 +5,8 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 
-import ShiftJobToggleList from './ShiftJobToggleList'
 import PageTemplate from '../Common/PageTemplate'
+import JobShiftNavigationBar from './JobShiftNavigationBar'
 var json = require('../../Data/mock_data.json');
 
 const styles = {
@@ -16,7 +16,7 @@ const styles = {
   }
 };
 
-export default class JobPage extends Component {
+export default class ShiftPage extends Component {
 
   constructor(props) {
     super(props);
@@ -43,8 +43,8 @@ export default class JobPage extends Component {
 
     return (
       <div className={classes.root}>
-        <PageTemplate pageIndex={0}>
-          <ShiftJobToggleList jobs={jobs} onChange={this.handleToggle} />
+        <PageTemplate pageIndex={1}>
+          <JobShiftNavigationBar />
         </PageTemplate>
       </div>
     );
@@ -52,7 +52,7 @@ export default class JobPage extends Component {
 
 }
 
-JobPage.propTypes = {
+ShiftPage.propTypes = {
   classes: PropTypes.object.isRequired,
   jobs: PropTypes.object.isRequired,
 };

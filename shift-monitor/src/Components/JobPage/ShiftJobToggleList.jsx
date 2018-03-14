@@ -34,6 +34,7 @@ class ShiftJobToggleList extends React.Component {
   }
 
   handleToggle = value => () => {
+    console.log("handleToggle ShiftJobToggleList");
     const { checked } = this.state;
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
@@ -43,7 +44,6 @@ class ShiftJobToggleList extends React.Component {
     } else {
       newChecked.splice(currentIndex, 1);
     }
-    console.log("handleToggle ShiftJobToggleList");
 
     this.setState({
       checked: newChecked,
@@ -58,7 +58,7 @@ class ShiftJobToggleList extends React.Component {
       <div className={classes.root}>
         <List subheader={<ListSubheader>Add Jobs To Shift</ListSubheader>}>
           {jobs.map(job => 
-          <ShiftJobToggleRow key={job.JobId} job={job} onChange={this.handleToggle(job.JobId)} checked={this.state.checked.indexOf(job.JobId) !== -1}/>)}
+          <ShiftJobToggleRow classes={classes} key={job.JobId} job={job} onChange={this.handleToggle} checked={this.state.checked.indexOf(job.JobId) !== -1}/>)}
         </List>
       </div>
     );
