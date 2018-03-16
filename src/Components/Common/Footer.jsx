@@ -5,7 +5,6 @@ import { withStyles } from 'material-ui/styles';
 import BottomNavigation, { BottomNavigationAction } from 'material-ui/BottomNavigation';
 import AlarmIcon from 'material-ui-icons/Alarm';
 import NoteAddIcon from 'material-ui-icons/NoteAdd';
-import LocationOnIcon from 'material-ui-icons/LocationOn';
 
 const styles = {
   root: {
@@ -15,7 +14,7 @@ const styles = {
   },
 };
 
-class SimpleBottomNavigation extends React.Component {
+class Footer extends React.Component {
   // @TODO set state from props
   state = {
     value: 2,
@@ -31,6 +30,7 @@ class SimpleBottomNavigation extends React.Component {
         break;
       case 1:
         this.props.history.push("/Shift");
+        break;
       default:
         break;
     }
@@ -56,9 +56,9 @@ class SimpleBottomNavigation extends React.Component {
   }
 }
 
-SimpleBottomNavigation.propTypes = {
+Footer.propTypes = {
   classes: PropTypes.object.isRequired,
   currentPageIndex: PropTypes.number.isRequired
 };
 
-export default withStyles(styles)(withRouter(SimpleBottomNavigation));
+export default withStyles(styles)(withRouter(Footer));

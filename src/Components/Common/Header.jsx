@@ -13,7 +13,7 @@ const styles = {
   }
 };
 
-export default class JobPage extends Component {
+class Header extends Component {
 
   constructor(props) {
     super(props);
@@ -46,7 +46,9 @@ export default class JobPage extends Component {
 
 }
 
-JobPage.propTypes = {
+export default withStyles(styles)(Header);
+
+Header.propTypes = {
   classes: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
 };

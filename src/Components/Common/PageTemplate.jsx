@@ -2,8 +2,8 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 
-import BottomNavigation from './BottomNavigation'
-import AppBar from './AppBar'
+import Footer from './Footer'
+import Header from './Header'
 
 const styles = {
   root: {
@@ -12,7 +12,7 @@ const styles = {
   }
 };
 
-export default class PageTemplate extends Component {
+class PageTemplate extends Component {
 
   constructor(props) {
     super(props);
@@ -33,11 +33,18 @@ export default class PageTemplate extends Component {
     // @TODO high order component: https://stackoverflow.com/questions/20851533/react-js-wrapping-one-component-into-another/31564812#31564812
     return (
       <div className={classes.root}>
-        <AppBar class={classes} title={title} />      
+        <Header class={classes} title={title} />      
           {this.props.children}
-        <BottomNavigation currentPageIndex={pageIndex}/>
+        <Footer currentPageIndex={pageIndex}/>
       </div>
     );
   }
 
 }
+
+export default withStyles(styles)(PageTemplate);
+
+PageTemplate.propTypes = {
+  pageIndex: PropTypes.number.isRequired,
+  title: PropTypes.string
+};

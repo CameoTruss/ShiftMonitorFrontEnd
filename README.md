@@ -1,4 +1,6 @@
-# CameoTruss
+# CameoTruss [Shift Monitor](http://cameotruss.io)
+
+[Live website](http://cameotruss.io)
 
 ## UI Resources
 

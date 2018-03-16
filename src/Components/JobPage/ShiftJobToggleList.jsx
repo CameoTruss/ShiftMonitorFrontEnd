@@ -49,8 +49,9 @@ class ShiftJobToggleList extends React.Component {
 
     return (
       <div className={classes.root}>
-        <List subheader={< ListSubheader > Add Jobs To Shift </ListSubheader>}>
-          {jobs.map(job => <div>
+        <List subheader={<ListSubheader> Add Jobs To Shift </ListSubheader>}>
+          {jobs.map(job => 
+          <div>
             <Divider/>
 
             <ShiftJobToggleRow

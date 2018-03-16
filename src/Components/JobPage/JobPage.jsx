@@ -1,10 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-
 import ShiftJobToggleList from './ShiftJobToggleList'
 import PageTemplate from '../Common/PageTemplate'
 var json = require('../../Data/mock_data.json');
@@ -16,35 +12,30 @@ const styles = {
   }
 };
 
-export default class JobPage extends Component {
+class JobPage extends Component {
 
   constructor(props) {
     super(props);
 
-    // this.handleToggle = this
-    // .handleToggle
-    // .bind(this);
+    // this.handleToggle = this .handleToggle .bind(this);
 
     this.state = {}
   }
 
   static defaultProps = {
     classes: styles,
-    jobs: json["Job"],
+    jobs: json["Job"]
   }
 
-  // handleToggle = value => () => {
-  //   debugger;
-  //   console.log(value);
-  // }
+  // handleToggle = value => () => {   debugger;   console.log(value); }
 
   render() {
-    const {classes, title, jobs} = this.props;
+    const {classes, jobs} = this.props;
 
     return (
       <div className={classes.root}>
         <PageTemplate pageIndex={0}>
-          <ShiftJobToggleList jobs={jobs} onChange={this.handleToggle} />
+          <ShiftJobToggleList jobs={jobs} onChange={this.handleToggle}/>
         </PageTemplate>
       </div>
     );
@@ -52,7 +43,9 @@ export default class JobPage extends Component {
 
 }
 
+export default withStyles(styles)(JobPage);
+
 JobPage.propTypes = {
   classes: PropTypes.object.isRequired,
-  jobs: PropTypes.object.isRequired,
+  jobs: PropTypes.object.isRequired
 };

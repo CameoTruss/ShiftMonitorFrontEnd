@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
 import JobPage from './Components/JobPage/JobPage'
-import HomePage from './Components/HomePage/HomePage'
 import ShiftPage from './Components/ShiftPage/ShiftPage'
 
 class App extends Component {

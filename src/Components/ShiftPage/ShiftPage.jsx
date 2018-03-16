@@ -1,9 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
 
 import PageTemplate from '../Common/PageTemplate'
 import JobShiftNavigationBar from './JobShiftNavigationBar'
@@ -16,7 +13,7 @@ const styles = {
   }
 };
 
-export default class ShiftPage extends Component {
+class ShiftPage extends Component {
 
   constructor(props) {
     super(props);
@@ -39,7 +36,7 @@ export default class ShiftPage extends Component {
   // }
 
   render() {
-    const {classes, title, jobs} = this.props;
+    const {classes, jobs} = this.props;
 
     return (
       <div className={classes.root}>
@@ -51,6 +48,8 @@ export default class ShiftPage extends Component {
   }
 
 }
+
+export default withStyles(styles)(ShiftPage);
 
 ShiftPage.propTypes = {
   classes: PropTypes.object.isRequired,
