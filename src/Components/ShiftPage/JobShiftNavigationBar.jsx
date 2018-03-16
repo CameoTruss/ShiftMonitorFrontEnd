@@ -1,18 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
-import { withStyles } from 'material-ui/styles';
+import {withStyles} from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
-import Tabs, { Tab } from 'material-ui/Tabs';
+import Tabs, {Tab} from 'material-ui/Tabs';
 import Typography from 'material-ui/Typography';
 
 import JobTrussTimer from './JobTrussTimer';
+var json = require('../../Data/mock_data.json');
 
 function TabContainer(props) {
-  const { children, dir } = props;
+  const {children, dir} = props;
 
   return (
-    <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
+    <Typography component="div" dir={dir} style={{
+      padding: 8 * 3
+    }}>
       {children}
     </Typography>
   );
@@ -20,7 +23,7 @@ function TabContainer(props) {
 
 TabContainer.propTypes = {
   children: PropTypes.node.isRequired,
-  dir: PropTypes.string.isRequired,
+  dir: PropTypes.string.isRequired
 };
 
 const styles = theme => ({
@@ -29,65 +32,69 @@ const styles = theme => ({
     width: '100%',
     position: 'relative',
     height: '100%',
-    minHeight: 200,
+    minHeight: 200
   }
 });
 
 class FloatingActionButtonZoom extends React.Component {
   state = {
-    value: 0,
+    value: 0
   };
 
+  static defaultProps = {
+    classes: styles,
+    jobs: json["Shift"]
+  }
+
   handleChange = (event, value) => {
-    this.setState({ value });
+    this.setState({value});
   };
 
   handleChangeIndex = index => {
-    this.setState({ value: index });
+    this.setState({value: index});
   };
 
   render() {
-    const { classes, theme } = this.props;
+    const {classes, theme, handleClick, jobs} = this.props;
     const transitionDuration = {
       enter: theme.transitions.duration.enteringScreen,
-      exit: theme.transitions.duration.leavingScreen,
+      exit: theme.transitions.duration.leavingScreen
     };
 
     return (
-      <div className={classes.root}>
-        <AppBar position="static" color="default">
-          <Tabs
-            value={this.state.value}
-            onChange={this.handleChange}
-            indicatorColor="primary"
-            textColor="primary"
-            fullWidth
-          >
-            <Tab label="J01" />
-            <Tab label="J02" />
-            <Tab label="J03" />
-          </Tabs>
-        </AppBar>
+      <div>
+        <div className={classes.root}>
+          <AppBar position="static" color="default">
+            <Tabs
+              value={this.state.value}
+              onChange={this.handleChange}
+              indicatorColor="primary"
+              textColor="primary"
+              fullWidth>
+              {jobs.map(job => <Tab label={`${job.JobNumber}`}/>)}
+            </Tabs>
+          </AppBar>
+        </div>
         <SwipeableViews
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          axis={theme.direction === 'rtl'
+          ? 'x-reverse'
+          : 'x'}
           index={this.state.value}
-          onChangeIndex={this.handleChangeIndex}
-        >
-          <TabContainer dir={theme.direction}>Swipe between jobs added to shift.</TabContainer>
-          <TabContainer dir={theme.direction}>A list 1 stopwatches per truss.
-          Each stopwatch indicates progress in run</TabContainer>
-          <TabContainer dir={theme.direction}>
-            <JobTrussTimer/>
-          </TabContainer>
+          onChangeIndex={this.handleChangeIndex}>
+          {jobs.map(job => <TabContainer dir={theme.direction}>
+            <JobTrussTimer onClick={handleClick} trusses={job["TaskList"]}/>
+          </TabContainer>)}
         </SwipeableViews>
       </div>
     );
   }
+
 }
 
 FloatingActionButtonZoom.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  jobs: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(FloatingActionButtonZoom);
+export default withStyles(styles, {withTheme: true})(FloatingActionButtonZoom);
