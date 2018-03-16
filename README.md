@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/grahamcrowell/CameoTruss.svg?branch=shift-monitor)](https://travis-ci.org/grahamcrowell/CameoTruss)
+
 # CameoTruss [Shift Monitor](http://cameotruss.io)
 
 [Live website](http://cameotruss.io)
