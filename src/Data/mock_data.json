@@ -1,0 +1,106 @@
+{
+  "Job": [{
+    "JobId": "J01-guid",
+    "JobNumber": "J01",
+    "CustomerId": "Most Wanted-guid"
+  }, {
+    "JobId": "J02-guid",
+    "JobNumber": "J02",
+    "CustomerId": "Foundrey-guid"
+  }, {
+    "JobId": "J03-guid",
+    "JobNumber": "J03",
+    "CustomerId": "Most Wanted-guid"
+  }, {
+    "JobId": "J04-guid",
+    "JobNumber": "J04",
+    "CustomerId": "Most Wanted-guid"
+  }, {
+    "JobId": "J05-guid",
+    "JobNumber": "J05",
+    "CustomerId": "Most Wanted-guid"
+  }, {
+    "JobId": "J06-guid",
+    "JobNumber": "J06",
+    "CustomerId": "Most Wanted-guid"
+  }, {
+    "JobId": "J07-guid",
+    "JobNumber": "J07",
+    "CustomerId": "Most Wanted-guid"
+  }],
+  "JobShift": [{
+    "JobShiftId": "J01-01-guid",
+    "JobId": "J01-guid",
+    "DepartmentShiftId": "DepartmentShiftId-J01-01-guid"
+  }, {
+    "JobShiftId": "J01-02-guid",
+    "JobId": "J01-guid",
+    "DepartmentShiftId": "DepartmentShiftId-J01-02-guid"
+  }, {
+    "JobShiftId": "J02-01-guid",
+    "JobId": "J02-guid",
+    "DepartmentShiftId": "DepartmentShiftId-J02-01-guid"
+  }],
+  "DepartmentShift": [{
+    "DepartmentShiftId": "DepartmentShiftId-J01-01-guid",
+    "Department": "Truss-Assembly",
+    "StartTime": "2017-01-01 08:00:00 AM",
+    "CompleteTime": null
+  }],
+  "ShiftTimeableTask": [{
+    "ShiftTimeableTaskId": "ShiftTimeableTaskId-J01-01",
+    "TimeableTaskId": "TimeableTaskId-J01-T01-guid",
+    "DepartmentShiftId": "DepartmentShiftId-J01-01-guid",
+    "ElapsedSeconds": 600,
+    "CurrentStatus": "In-Progress"
+  }],
+  "TimeableTask": [{
+      "TimeableTaskId": "TimeableTaskId-J01-T01-guid",
+      "JobId": "J01-guid",
+      "TaskDesc": "T01"
+    }, {
+      "TimeableTaskId": "TimeableTaskId-J01-T02-guid",
+      "JobId": "J01-guid",
+      "TaskDesc": "T02"
+    }, {
+      "TimeableTaskId": "TimeableTaskId-J01-T03-guid",
+      "JobId": "J01-guid",
+      "TaskDesc": "T03"
+    }]
+
+
+    ,
+  "Shift": [{
+      "JobNumber": "J01",
+      "TaskList": [{
+        "TaskId": "T01-guid",
+        "TaskName": "T01",
+        "SubTaskCount": 3,
+        "Times": []
+      }, {
+        "TaskId": "T02-guid",
+        "TaskName": "T02",
+        "SubTaskCount": 5,
+        "Times": []
+      }, {
+        "TaskId": "T03-guid",
+        "TaskName": "T03",
+        "SubTaskCount": 9,
+        "Times": []
+      }]
+    },
+    {
+      "JobNumber": "J02",
+      "TaskList": [{
+        "TaskId": "T01-guid",
+        "TaskName": "T01",
+        "SubTaskCount": 6,
+        "Times": []
+      }]
+    }
+
+  ]
+
+
+
+}
