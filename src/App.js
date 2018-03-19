@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
 import JobPage from './Components/JobPage/JobPage'
 import ShiftPage from './Components/ShiftPage/ShiftPage'
+import CompletionPage from './Components/CompletionPage/CompletionPage'
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
             <Route exact={true} path="/" component={JobPage} />
             <Route exact={true} path="/Jobs" component={JobPage} />
             <Route exact={true} path="/Shift" component={ShiftPage} />
+            <Route exact={true} path="/Complete" component={CompletionPage} />
           </div>
         </Router>
       </MuiThemeProvider>

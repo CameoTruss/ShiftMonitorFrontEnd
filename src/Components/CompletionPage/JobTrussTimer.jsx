@@ -4,8 +4,9 @@ import {withStyles} from 'material-ui/styles';
 import List, {ListItem, ListItemText} from 'material-ui/List';
 import Divider from 'material-ui/Divider'
 import Avatar from 'material-ui/Avatar';
+import ImageIcon from 'material-ui-icons/Image';
 import Button from 'material-ui/Button';
-import green from 'material-ui/colors/green';
+import CheckBoxGroup from './CheckboxesGroup';
 
 const styles = theme => ({
   root: {
@@ -13,8 +14,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper
   },
   button: {
-    margin: theme.spacing.unit,
-    complete: green[500]
+    margin: theme.spacing.unit
   },
   input: {
     display: 'none'
@@ -28,13 +28,14 @@ function FolderList(props) {
       <List>
         <Divider/> {trusses.map(truss => <div>
           <ListItem>
-            <ListItemText primary={`${truss.TaskName}`} secondary="Completed 1/4"/>
-            <Button onClick={onClick} variant="raised" className={classes.button} size="large" color="primary">
-              Start {`${truss.TaskName}`}
-            </Button>
-            <Button onClick={onClick} variant="raised" className={classes.button} size="large" color="secondary">
-              Pause {`${truss.TaskName}`}
-            </Button>
+            <img src={'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Lenticular-truss.svg/320px-Lenticular-truss.svg.png'} alt="boohoo" className="img-responsive"/>
+            <ListItemText primary={`${truss.TaskName}`} secondary={`
+              Quantity: n
+              Span: x
+              Overall Height: y
+              Pitch: z
+            `}/>
+          <CheckBoxGroup/>
           </ListItem>
           <Divider/>
         </div>)}
