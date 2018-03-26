@@ -1,0 +1,47 @@
+﻿
+type Shift @model {
+  id: ID! @isUnique
+  shiftStart: DateTime!
+  jobs: [Job!]! @relation(name: "ShiftJobs")
+  shiftState: ShiftState!
+}
+
+type Job @model {
+  id: ID! @isUnique
+  jobNumber: String!
+  shifts: [Shift!]! @relation(name: "ShiftJobs")
+  tasks: [Task!]! @relation(name: "JobTask")
+}
+
+type Task @model {
+  id: ID! @isUnique
+  taskName: String!
+  taskState: TaskState!
+  job: Job @relation(name: "JobTask")
+  taskTime: TaskTime @relation(name: "TaskTaskTime")
+  subTasks: [SubTask!]! @relation(name: "TaskSubTask")
+}
+
+type TaskTime @model {
+  id: ID! @isUnique
+  task: Task! @relation(name: "TaskTaskTime")
+  taskStartedTime: DateTime
+  taskCompletedTime: DateTime
+  taskElasped: Int
+}
+
+type SubTask @model {
+  id: ID! @isUnique
+  subTaskName: String
+  subTaskTime: SubTaskTime @relation(name: "SubTaskSubTaskTime")
+  subTaskState: SubTaskState!
+  tasks: Task @relation(name: "TaskSubTask")
+}
+
+type SubTaskTime @model {
+  id: ID! @isUnique
+  subTask: SubTask! @relation(name: "SubTaskSubTaskTime")
+  subTaskStartedTime: DateTime
+  subTaskCompletedTime: DateTime
+  subTaskElapsed: Int
+}
