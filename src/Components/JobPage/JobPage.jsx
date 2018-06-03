@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
+import gql from "graphql-tag";
+import { Query } from "react-apollo";
 import ShiftJobToggleList from './ShiftJobToggleList'
 import PageTemplate from '../Common/PageTemplate'
 var json = require('../../Data/mock_data.json');
@@ -12,6 +14,14 @@ const styles = {
   }
 };
 
+const GET_JOBS = gql`
+{
+  jobs {
+    job_id,
+    job_name
+  }
+}
+`
 class JobPage extends Component {
 
   constructor(props) {

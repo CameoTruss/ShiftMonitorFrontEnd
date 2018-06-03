@@ -1,0 +1,33 @@
+
+
+# corresponds to a job folder in Dropbox: https://www.dropbox.com/home/Cameo/2018/Jobs
+type Job {
+  # internal id used by app
+  job_id: ID!,
+  # corresponds to a job folder name
+  job_number: String!,
+  trusses: [Truss!]
+}
+
+# corresponds to a *.tre file in a job folder
+type Truss {
+  truss_id: ID!,
+  # <truss_name>.tre
+  truss_name: String!,
+  quantity: Int!,
+  truss_elapsed: Int,
+  truss_state: WorkState,
+  job: Job!  
+}
+
+enum WorkState {
+  IN_PROGRESS,
+  STOPPED,
+  COMPLETED
+}
+
+type Shift {
+  start_timestamp: Int,
+  shift_state: WorkState,
+  jobs: [Job!]!
+}
