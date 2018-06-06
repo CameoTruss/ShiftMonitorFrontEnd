@@ -1,5 +1,40 @@
 import React, { Component } from 'react';
 import logo from '../../assets/logo.svg';
+import gql from "graphql-tag";
+
+
+
+import ApolloClient from "apollo-boost";
+
+/** local Apollo server:
+ * follow steps here to start mock server:
+ * https://www.apollographql.com/docs/apollo-server/example.html
+ * 
+ * chrome must be started to allow CORS:
+ * https://stackoverflow.com/a/3177718
+ * 
+ */
+
+export const client = new ApolloClient({
+  // uri: "https://w5xlvm3vzz.lp.gql.zone/graphql"
+  // start google with 
+  uri: "http://localhost:3000/graphql"
+});
+
+
+client
+  .query({
+    query: gql`
+      {
+        books {
+          title
+          author 
+        }
+      }
+    `
+  })
+  // see dev tools console in chrome
+  .then(result => console.log(result));
 
 class HomePage extends Component {
   render() {
