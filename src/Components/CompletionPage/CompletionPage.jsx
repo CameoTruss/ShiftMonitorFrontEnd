@@ -4,7 +4,6 @@ import {withStyles} from 'material-ui/styles';
 
 import PageTemplate from '../Common/PageTemplate'
 import JobShiftNavigationBar from './JobShiftNavigationBar'
-var json = require('../../Data/mock_data.json');
 
 const styles = {
   root: {
@@ -27,7 +26,6 @@ class CompletionPage extends Component {
 
   static defaultProps = {
     classes: styles,
-    jobs: json["Job"],
   }
 
   // handleToggle = value => () => {
@@ -36,7 +34,7 @@ class CompletionPage extends Component {
   // }
 
   render() {
-    const {classes, jobs} = this.props;
+    const {classes} = this.props;
 
     return (
       <div className={classes.root}>
@@ -53,5 +51,4 @@ export default withStyles(styles)(CompletionPage);
 
 CompletionPage.propTypes = {
   classes: PropTypes.object.isRequired,
-  jobs: PropTypes.object.isRequired,
 };

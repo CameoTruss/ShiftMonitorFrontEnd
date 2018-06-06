@@ -1,10 +1,8 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
-
 import PageTemplate from '../Common/PageTemplate'
 import JobShiftNavigationBar from './JobShiftNavigationBar'
-var json = require('../../Data/mock_data.json');
 
 const styles = {
   root: {
@@ -27,7 +25,6 @@ class ShiftPage extends Component {
 
   static defaultProps = {
     classes: styles,
-    jobs: json["Job"],
   }
 
   // handleToggle = value => () => {
@@ -36,7 +33,7 @@ class ShiftPage extends Component {
   // }
 
   render() {
-    const {classes, jobs} = this.props;
+    const {classes} = this.props;
 
     return (
       <div className={classes.root}>
