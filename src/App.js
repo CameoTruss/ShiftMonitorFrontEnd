@@ -9,10 +9,19 @@ import JobPage from './Components/JobPage/JobPage'
 import ShiftPage from './Components/ShiftPage/ShiftPage'
 import CompletionPage from './Components/CompletionPage/CompletionPage'
 import HomePage from './Components/HomePage/HomePage'
-import ExchangeRates from './Components/ExchangeRates'
+import Books from './Components/Books'
+
+/** local Apollo server:
+ * follow steps here to start mock server:
+ * https://www.apollographql.com/docs/apollo-server/example.html
+ * 
+ * chrome must be started to allow CORS:
+ * https://stackoverflow.com/a/3177718
+ * 
+ */
 
 const client = new ApolloClient({
-  uri: "https://w5xlvm3vzz.lp.gql.zone/graphql"
+  uri: "http://localhost:3000/graphql"
 });
 
 const theme = createMuiTheme();
@@ -36,7 +45,7 @@ class App extends Component {
           <Router>
             <div>
               <Route exact={true} path="/" component={HomePage}/>
-              <Route exact={true} path="/ExchangeRates" component={ExchangeRates}/>
+              <Route exact={true} path="/Books" component={Books}/>
               <Route exact={true} path="/Jobs" component={JobPage}/>
               <Route exact={true} path="/Shift" component={ShiftPage}/>
               <Route exact={true} path="/Complete" component={CompletionPage}/>
