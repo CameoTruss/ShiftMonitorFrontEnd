@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const { makeExecutableSchema } = require('graphql-tools');
-
+var json = require('./mock_data.json');
 /** local Apollo server:
  * follow steps here to start mock server:
  * https://www.apollographql.com/docs/apollo-server/example.html
@@ -13,16 +13,7 @@ const { makeExecutableSchema } = require('graphql-tools');
  */
 
 // Some fake data
-const books = [
-  {
-    title: "Harry Potter and the Sorcerer's stone",
-    author: 'J.K. Rowling',
-  },
-  {
-    title: 'Jurassic Park',
-    author: 'Michael Crichton',
-  },
-];
+const books = json;
 
 // The GraphQL schema in string form
 const typeDefs = `
