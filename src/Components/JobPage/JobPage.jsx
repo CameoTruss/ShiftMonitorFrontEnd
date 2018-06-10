@@ -14,14 +14,6 @@ const styles = {
 };
 
 class JobPage extends Component {
-  constructor(props) {
-    super(props);
-    this.handleToggle = value => () => {
-      debugger;
-      console.log(value);
-    }
-  }
-
   static defaultProps = {
     classes: styles
   }
@@ -29,7 +21,7 @@ class JobPage extends Component {
   render() {
     const {classes} = this.props;
     return (
-      <Query query={gql ` { jobs { JobId JobNumber CustomerId } } `}>
+      <Query query={gql ` { jobs { JobId JobNumber CustomerId Added} } `}>
         {({loading, error, data}) => {
           if (loading) 
             return <p>Loading...</p>;
@@ -37,7 +29,7 @@ class JobPage extends Component {
             return <p>Error :(</p>;
           return <div className={classes.root}>
             <PageTemplate pageIndex={0}>
-              <ShiftJobToggleList jobs={data.jobs} onChange={this.handleToggle}/>
+              <ShiftJobToggleList jobs={data.jobs}/>
             </PageTemplate>
           </div>
         }}

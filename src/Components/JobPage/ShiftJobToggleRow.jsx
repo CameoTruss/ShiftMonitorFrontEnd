@@ -15,24 +15,6 @@ const styles = theme => ({
 });
 
 class ShiftJobToggleRow extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.handleToggle = this
-      .handleToggle
-      .bind(this);
-
-    this.state = {
-      checked: false,
-    }
-  }
-
-  handleToggle = value => () => {
-    var newChecked = !this.state.checked;
-    // this.props.onChange(this.props.job.JobId);
-    console.log("update remote system")
-    this.setState({checked: newChecked});
-  }
 
   render() {
     const { job, classes, onChange, checked } = this.props;
