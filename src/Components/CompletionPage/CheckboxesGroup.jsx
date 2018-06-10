@@ -1,10 +1,8 @@
 import React from 'react';
 import {
-  FormLabel,
   FormControl,
   FormGroup,
   FormControlLabel,
-  FormHelperText,
 } from 'material-ui/Form';
 import Checkbox from 'material-ui/Checkbox';
 import { withStyles } from 'material-ui/styles';
@@ -48,9 +46,9 @@ class CheckboxesGroup extends React.Component {
                 checked={this.state.loaded}
                 onChange={this.handleChange('loaded')}
                 value="loaded"
-                // classes={{
-                //   checked: classes.checked,
-                // }}
+                classes={{
+                  checked: classes.checked,
+                }}
               />
             }
             label="Loaded"

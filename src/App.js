@@ -27,10 +27,6 @@ const client = new ApolloClient({
 const theme = createMuiTheme();
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   static defaultProps = {
     client
   }
