@@ -26,12 +26,34 @@ const ADD_JOB_TO_SHIFT = gql `
   }
 `;
 
+const GET_JOBS = gql `{ 
+  jobs
+  {
+    JobId
+    JobNumber
+    CustomerId
+    Added
+  }
+}`
+
+// https://www.apollographql.com/docs/react/essentials/mutations.html
 class ShiftJobToggleRow extends React.Component {
   render() {
     const {job, classes} = this.props;
     return (
-      // https://www.apollographql.com/docs/react/essentials/mutations.html
-      <Mutation mutation={ADD_JOB_TO_SHIFT}>
+      <Mutation
+        mutation={ADD_JOB_TO_SHIFT}
+        update={(cache, {data: {
+          addJobToShift
+        }}) => {
+        const {jobs} = cache.readQuery({query: GET_JOBS});
+        cache.writeQuery({
+          query: GET_JOBS,
+          data: {
+            jobs: jobs.concat([addJobToShift])
+          }
+        });
+      }}>
         {(addJobToShift, {data}) => (
           <ListItem
             key={job.JobId}
