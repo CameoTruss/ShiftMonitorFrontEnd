@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
-import List, {ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText, ListSubheader} from 'material-ui/List';
+import List, {ListSubheader} from 'material-ui/List';
 import Divider from 'material-ui/Divider'
 import Switch from 'material-ui/Switch';
 import WifiIcon from 'material-ui-icons/Wifi';
@@ -49,9 +49,10 @@ class ShiftJobToggleList extends React.Component {
 
     return (
       <div className={classes.root}>
-        <List subheader={<ListSubheader> Add Jobs To Shift </ListSubheader>}>
+        <List subheader={
+        <ListSubheader> Add Jobs To Shift </ListSubheader>}>
           {jobs.map(job => 
-          <div>
+          <div key={job.JobId}>
             <Divider/>
 
             <ShiftJobToggleRow
@@ -72,7 +73,7 @@ class ShiftJobToggleList extends React.Component {
 
 ShiftJobToggleList.propTypes = {
   classes: PropTypes.object.isRequired,
-  jobs: PropTypes.object.isRequired
+  jobs: PropTypes.array.isRequired
 };
 
 export default withStyles(styles)(ShiftJobToggleList);

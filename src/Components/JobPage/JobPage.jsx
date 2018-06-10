@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
+import {Query} from "react-apollo";
+import gql from "graphql-tag";
 import {withStyles} from 'material-ui/styles';
 import ShiftJobToggleList from './ShiftJobToggleList'
 import PageTemplate from '../Common/PageTemplate'
@@ -8,44 +10,45 @@ var json = require('../../Data/mock_data.json');
 const styles = {
   root: {
     flexGrow: 1,
-    width: '100%'
+    width: '10%'
   }
 };
 
 class JobPage extends Component {
-
   constructor(props) {
     super(props);
-
-    // this.handleToggle = this .handleToggle .bind(this);
-
-    this.state = {}
+    this.handleToggle = value => () => {
+      debugger;
+      console.log(value);
+    }
   }
 
   static defaultProps = {
-    classes: styles,
-    jobs: json["Job"]
+    classes: styles
   }
-
-  // handleToggle = value => () => {   debugger;   console.log(value); }
 
   render() {
-    const {classes, jobs} = this.props;
-
+    const {classes} = this.props;
     return (
-      <div className={classes.root}>
-        <PageTemplate pageIndex={0}>
-          <ShiftJobToggleList jobs={jobs} onChange={this.handleToggle}/>
-        </PageTemplate>
-      </div>
+      <Query query={gql ` { jobs { JobId JobNumber CustomerId } } `}>
+        {({loading, error, data}) => {
+          if (loading) 
+            return <p>Loading...</p>;
+          if (error) 
+            return <p>Error :(</p>;
+          return <div className={classes.root}>
+            <PageTemplate pageIndex={0}>
+              <ShiftJobToggleList jobs={data.jobs} onChange={this.handleToggle}/>
+            </PageTemplate>
+          </div>
+        }}
+      </Query>
     );
   }
-
 }
 
-export default withStyles(styles)(JobPage);
+export default JobPage;
 
 JobPage.propTypes = {
-  classes: PropTypes.object.isRequired,
-  jobs: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired
 };
