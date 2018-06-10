@@ -60,7 +60,7 @@ const resolvers = {
       if (!job) {
         throw new Error(`Couldn't find job with JobId ${jobId}`);
       }
-      job.Added = true;
+      job.Added = !job.Added;
       return job;
     },
   },

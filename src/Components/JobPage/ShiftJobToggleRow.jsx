@@ -1,35 +1,66 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import List, {ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText, ListSubheader} from 'material-ui/List';
+import gql from "graphql-tag";
+import {Mutation} from "react-apollo";
+import {ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
 import {withStyles} from 'material-ui/styles';
 import Switch from 'material-ui/Switch';
-import WifiIcon from 'material-ui-icons/Wifi';
-import BluetoothIcon from 'material-ui-icons/Bluetooth';
 
 const styles = theme => ({
   root: {
     width: '100%',
     maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
+    backgroundColor: theme.palette.background.paper
+  }
 });
 
-class ShiftJobToggleRow extends React.Component {
+// https://www.apollographql.com/docs/react/essentials/mutations.html
+const ADD_JOB_TO_SHIFT = gql `
+  mutation addJobToShift($jobId: String!) {
+    addJobToShift(jobId: $jobId) {
+      JobId
+      JobNumber
+      CustomerId
+      Added
+    }
+  }
+`;
 
+class ShiftJobToggleRow extends React.Component {
   render() {
-    const { job, classes, onChange, checked } = this.props;
+    const {job, classes} = this.props;
     return (
-      <ListItem
-          key={job.JobId}
-          button
-          onClick={onChange(job)}
-          className={classes.listItem}
-        >
-        <ListItemText primary={job.JobNumber} secondary={job.CustomerId}/>
-        <ListItemSecondaryAction>
-          <Switch onChange={onChange(job)} checked={checked}/>
-        </ListItemSecondaryAction>
-      </ListItem>
+      // https://www.apollographql.com/docs/react/essentials/mutations.html
+      <Mutation mutation={ADD_JOB_TO_SHIFT}>
+        {(addJobToShift, {data}) => (
+          <ListItem
+            key={job.JobId}
+            button
+            onClick={e => {
+            e.preventDefault();
+            addJobToShift({
+              variables: {
+                jobId: job.JobId
+              }
+            });
+          }}
+            className={classes.listItem}>
+            <ListItemText primary={job.JobNumber} secondary={job.CustomerId}/>
+            <ListItemSecondaryAction>
+              <Switch
+                onChange={e => {
+                e.preventDefault();
+                addJobToShift({
+                  variables: {
+                    jobId: job.JobId
+                  }
+                });
+              }}
+                checked={job.Added}/>
+            </ListItemSecondaryAction>
+          </ListItem>
+        )}
+      </Mutation>
     );
   };
 }
