@@ -18,17 +18,16 @@ class ShiftJobToggleRow extends React.Component {
 
   render() {
     const { job, classes, onChange, checked } = this.props;
-    // console.log(job);
     return (
       <ListItem
           key={job.JobId}
           button
-          onClick={onChange(job.JobId)}
+          onClick={onChange(job)}
           className={classes.listItem}
         >
         <ListItemText primary={job.JobNumber} secondary={job.CustomerId}/>
         <ListItemSecondaryAction>
-          <Switch onChange={onChange(job.JobId)} checked={checked}/>
+          <Switch onChange={onChange(job)} checked={checked}/>
         </ListItemSecondaryAction>
       </ListItem>
     );

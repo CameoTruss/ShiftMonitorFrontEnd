@@ -29,7 +29,7 @@ class ShiftJobToggleList extends React.Component {
   }
 
   handleToggle = value => () => {
-    console.log("handleToggle ShiftJobToggleList");
+    console.log("handleToggle ShiftJobToggleList: "+value.JobId);
     const {checked} = this.state;
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
@@ -60,10 +60,7 @@ class ShiftJobToggleList extends React.Component {
               key={job.JobId}
               job={job}
               onChange={this.handleToggle}
-              checked={this
-              .state
-              .checked
-              .indexOf(job.JobId) !== -1}/>
+              checked={job.Added}/>
           </div>)}
         </List>
       </div>

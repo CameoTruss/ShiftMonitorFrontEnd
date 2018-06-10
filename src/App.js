@@ -17,7 +17,7 @@ import BooksPage from './Components/Books'
  * 
  * chrome must be started to allow CORS:
  * https://stackoverflow.com/a/3177718
- * google-chrome-stable --disable-web-security --user-data-dir=$HOME
+ * google-chrome-stable --disable-web-security --user-data-dir=~/.config/google-chrome
  */
 
 const client = new ApolloClient({
