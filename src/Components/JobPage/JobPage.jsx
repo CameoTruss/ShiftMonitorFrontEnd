@@ -13,6 +13,16 @@ const styles = {
   }
 };
 
+const GET_JOBS = gql `{ 
+  jobs
+  {
+    JobId
+    JobNumber
+    CustomerId
+    Added
+  }
+}`
+
 class JobPage extends Component {
   static defaultProps = {
     classes: styles
@@ -21,7 +31,7 @@ class JobPage extends Component {
   render() {
     const {classes} = this.props;
     return (
-      <Query query={gql ` { jobs { JobId JobNumber CustomerId Added} } `}>
+      <Query query={GET_JOBS}>
         {({loading, error, data}) => {
           if (loading) 
             return <p>Loading...</p>;
