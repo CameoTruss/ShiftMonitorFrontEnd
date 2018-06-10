@@ -9,7 +9,7 @@ import JobPage from './Components/JobPage/JobPage'
 import ShiftPage from './Components/ShiftPage/ShiftPage'
 import CompletionPage from './Components/CompletionPage/CompletionPage'
 import HomePage from './Components/HomePage/HomePage'
-import Books from './Components/Books'
+import BooksPage from './Components/Books'
 
 /** local Apollo server:
  * follow steps here to start mock server:
@@ -17,7 +17,7 @@ import Books from './Components/Books'
  * 
  * chrome must be started to allow CORS:
  * https://stackoverflow.com/a/3177718
- * 
+ * google-chrome-stable --disable-web-security --user-data-dir=$HOME
  */
 
 const client = new ApolloClient({
@@ -45,7 +45,7 @@ class App extends Component {
           <Router>
             <div>
               <Route exact={true} path="/" component={HomePage}/>
-              <Route exact={true} path="/Books" component={Books}/>
+              <Route exact={true} path="/Books" component={BooksPage}/>
               <Route exact={true} path="/Jobs" component={JobPage}/>
               <Route exact={true} path="/Shift" component={ShiftPage}/>
               <Route exact={true} path="/Complete" component={CompletionPage}/>

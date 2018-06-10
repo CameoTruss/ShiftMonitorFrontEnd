@@ -1,9 +1,18 @@
-import React from 'react';
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import React, {Component} from "react";
+import PropTypes from 'prop-types';
+import {withStyles} from 'material-ui/styles';
 
-const Books = () => (
-  <Query
+class BooksPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
+
+  render() { 
+    return (
+    <Query
     query={gql`
       {
         books {
@@ -16,7 +25,6 @@ const Books = () => (
     {({ loading, error, data }) => {
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error :(</p>;
-
       return data.books.map(({ title,author }) => (
         <div key={title}>
           <p>{`${title}: ${author}`}</p>
@@ -24,6 +32,7 @@ const Books = () => (
       ));
     }}
   </Query>
-);
+  );}
+}
 
-export default Books;
+export default BooksPage;
